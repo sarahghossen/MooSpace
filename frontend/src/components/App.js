@@ -22,7 +22,7 @@ const App = () => {
           <Route exact path="/sign-in">
             <SignIn />
           </Route>
-          <Route exact path="/user/">
+          <Route exact path="/users/:id">
             <User />
           </Route>
           <Route path="/profile">Page 1</Route>
@@ -35,4 +35,5 @@ const App = () => {
 // const Home = styled.div`
 //   background-color: #d9c39e;
 // `;
+
 export default App;
