@@ -15,6 +15,7 @@ const App = () => {
           <Route path="/page-1">Page 1</Route>
         </Switch>
       </div>
+      <div></div>
     </BrowserRouter>
   );
 };
