@@ -32,16 +32,18 @@ const Homepage = () => {
   );
 };
 
+// const Div = styled.div`
+//   background-color: #d9c39e;
+//   background-size: cover;
+//   height: 100vh;
+// `;
+
 const UserDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
+  margin: 5px;
 `;
 
 const Everything = styled.div`
-  margin: 10px;
+  margin: 50px;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -52,9 +54,9 @@ const Link = styled.a`
 `;
 
 const Img = styled.img`
-  width: 150px;
+  width: 120px;
   margin: 10px;
-  border: 5px solid #353148;
+  border: 3px solid #d9c39e;
   border-radius: 50%;
 `;
 
@@ -70,10 +72,12 @@ const P = styled.p`
 const H1 = styled.h1`
   color: #353148;
   font-family: "Teko", sans-serif;
-  font-size: 30px;
+  font-size: 50px;
+  border-bottom: 1px solid #353148;
   padding-top: 25px;
   padding-left: 30px;
-  z-index: 100;
+  width: 100%;
+  text-align: center;
 `;
 
 export default Homepage;

@@ -16,8 +16,8 @@ const Friend = ({ friendId }) => {
     <>
       {friend ? (
         <Link href={`/users/${friendId}`}>
-          <img src={friend.avatarUrl} />
-          <h1>{friend.name}</h1>
+          <Img src={friend.avatarUrl} />
+          <H2>{friend.name}</H2>
         </Link>
       ) : (
         <div>Loading...</div>
@@ -27,7 +27,25 @@ const Friend = ({ friendId }) => {
 };
 
 const Link = styled.a`
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+`;
+
+const Img = styled.img`
   text-decoration: none;
   color: #353148;
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid #d9c39e;
 `;
+
+const H2 = styled.h2`
+  color: #353148;
+  font-family: "Teko", sans-serif;
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+`;
+
 export default Friend;
