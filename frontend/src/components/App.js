@@ -5,6 +5,7 @@ import GlobalStyles from "./GlobalStyles";
 import Homepage from "./Homepage";
 import Header from "./Header";
 import SignIn from "./SignIn";
+import User from "./User";
 
 const App = () => {
   return (
@@ -12,16 +13,26 @@ const App = () => {
       <GlobalStyles />
       <div>
         <Header />
-        {/* <SignIn /> */}
         <Switch>
+          {/* <Home> */}
           <Route exact path="/">
             <Homepage />
           </Route>
-          <Route path="/Profile">Page 1</Route>
+          {/* </Home> */}
+          <Route exact path="/sign-in">
+            <SignIn />
+          </Route>
+          <Route exact path="/user/">
+            <User />
+          </Route>
+          <Route path="/profile">Page 1</Route>
         </Switch>
       </div>
     </BrowserRouter>
   );
 };
 
+// const Home = styled.div`
+//   background-color: #d9c39e;
+// `;
 export default App;

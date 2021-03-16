@@ -13,70 +13,67 @@ const Homepage = () => {
   }, []);
 
   return (
-    <Everything>
+    <>
       <H1>All Facespace members</H1>
-      {users.map((user) => (
-        <UserDiv>
-          <Link href={`/users/${user.id}`}>
-            <Img src={user.avatarUrl} alt="Profile pic" />
-            <P>{user.name}</P>
-          </Link>
-        </UserDiv>
-      ))}
-    </Everything>
+      <Everything>
+        {users.map((user) => {
+          //   console.log(user);
+          return (
+            <UserDiv>
+              <Link href={`/users/${user._id}`}>
+                <Img src={user.avatarUrl} alt="Profile pic" />
+                <P>{user.name}</P>
+              </Link>
+            </UserDiv>
+          );
+        })}
+      </Everything>
+    </>
   );
 };
 
-const UserDiv = styled.div``;
-
-const Everything = styled.div``;
-
-const Link = styled.a`
-  text-decoration: none;
-`;
-
-const Img = styled.img`
-  width: 50px;
+const UserDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 10px;
 `;
 
+const Everything = styled.div`
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  color: #353148;
+`;
+
+const Img = styled.img`
+  width: 150px;
+  margin: 10px;
+  border: 5px solid #353148;
+  border-radius: 50%;
+`;
+
 const P = styled.p`
-  width: 50px;
+  font-family: "Teko", sans-serif;
+  width: 60px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  /* align-items: center; */
 `;
 
 const H1 = styled.h1`
-  color: black;
+  color: #353148;
+  font-family: "Teko", sans-serif;
+  font-size: 30px;
+  padding-top: 25px;
+  padding-left: 30px;
+  z-index: 100;
 `;
-
-// const Everyone = styled.div`
-//   display: flex;
-//   flex-direction: wrap;
-//   justify-content: center;
-//   margin-top: 50px;
-//   margin-left: 20px;
-// `;
-
-// const H1 = styled.h1`
-//   /* display: flex; */
-//   /* flex-direction: row; */
-// `;
-
-// const Info = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   /* align-items: center; */
-// `;
-
-// const Img = styled.img`
-//   width: 100px;
-//   height: 100px;
-//   border-radius: 10px;
-//   border: 2px solid black;
-//   margin-left: 10px;
-// `;
-
-// const Name = styled.div`
-//   margin-left: 45px;
-// `;
 
 export default Homepage;
