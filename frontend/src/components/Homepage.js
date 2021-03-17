@@ -58,6 +58,12 @@ const Img = styled.img`
   margin: 10px;
   border: 3px solid #d9c39e;
   border-radius: 50%;
+  background-color: purple;
+  &:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 `;
 
 const P = styled.p`

@@ -16,7 +16,7 @@ const SignIn = () => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  background-color: rgba(221, 175, 148, 0.6);
+  background-color: rgba(53, 49, 72, 0.8);
   align-items: center;
   justify-content: center;
   width: 20vw;
@@ -26,7 +26,7 @@ const Form = styled.form`
 `;
 
 const FormDiv = styled.div`
-  background: url("/images/facespace_bg.jpg");
+  background: url("/images/Montreal.jpg");
   background-position: center;
   background-size: cover;
   height: calc(100vh - 60px);
@@ -47,14 +47,14 @@ const Button = styled.button`
   padding: 3px;
   width: 30%;
   margin-top: 10px;
-  background-color: #353148;
-  color: #d9c39e;
+  background-color: #d9c39e;
+  color: #353148;
   font-family: "Teko", sans-serif;
   font-size: 15px;
 `;
 
 const P = styled.p`
-  color: #353148;
+  color: #d9c39e;
   font-family: "Teko", sans-serif;
 `;
 

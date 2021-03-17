@@ -24,6 +24,11 @@ const Link = styled.a`
   font-size: 30px;
   text-decoration: none;
   color: #d9c39e;
+  &:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 `;
 
 const P = styled.a`
@@ -31,6 +36,11 @@ const P = styled.a`
   font-size: 20px;
   text-decoration: none;
   color: #d9c39e;
+  &:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 `;
 
 export default Header;
