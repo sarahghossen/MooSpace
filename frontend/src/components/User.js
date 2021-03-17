@@ -3,27 +3,27 @@ import { useParams } from "react-router";
 import styled from "styled-components";
 import Friend from "./Friend";
 
-const User = () => {
-  const [user, setUser] = useState([]);
+const User = ({ currentUser, setCurrentUser }) => {
+  const [profileUser, setProfileUser] = useState({});
   let { id } = useParams();
   useEffect(() => {
     // fetch("/api" + window.location.pathname)
     fetch("/api/users/" + id)
       .then((res) => res.json())
       .then((data) => {
-        setUser(data.data);
+        setProfileUser(data.data);
       });
   }, []);
   console.log("hello");
   return (
     <>
-      {user && user.friends ? (
+      {profileUser && profileUser.friends ? (
         <Container>
           <Div>
-            <Img src={user.avatarUrl} />
-            <H1>{user.name}</H1>
-            <H2>{user.name}'s Friends</H2>
-            {user.friends.map((friendId) => (
+            <Img src={profileUser.avatarUrl} />
+            <H1>{profileUser.name}</H1>
+            <H2>{profileUser.name}'s Friends</H2>
+            {profileUser.friends.map((friendId) => (
               <Friend friendId={friendId} />
             ))}
           </Div>

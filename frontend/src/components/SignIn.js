@@ -1,15 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
-const SignIn = () => {
-  return (
-    <FormDiv>
-      <Form>
-        <P>Your first name here:</P>
-        <Input type="text"></Input>
-        <Button type="submit">Sign in</Button>
-      </Form>
-    </FormDiv>
+const SignIn = ({ currentUser, setCurrentUser, users, setUsers }) => {
+  console.log(currentUser);
+  console.log(users);
+  const [input, setInput] = useState();
+  const history = useHistory();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("insideHandle", input);
+    users.find((user) => {
+      if (user.name.toLowerCase() === input.toLowerCase()) {
+        setCurrentUser(user);
+      }
+    });
+    history.push("/");
+  };
+
+  return currentUser ? (
+    <div>{currentUser.name}</div>
+  ) : (
+    <>
+      {users ? (
+        <FormDiv>
+          <Form onSubmit={handleSubmit}>
+            <P>Your first name here:</P>
+            <Input
+              type="text"
+              onChange={(e) => setInput(e.target.value)}
+            ></Input>
+            <Button type="submit">Sign in</Button>
+          </Form>
+        </FormDiv>
+      ) : (
+        <div>Loading...</div>
+      )}
+    </>
   );
 };
 

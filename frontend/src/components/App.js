@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
@@ -8,22 +8,27 @@ import SignIn from "./SignIn";
 import User from "./User";
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState("");
+  const [users, setUsers] = useState([]);
   return (
     <BrowserRouter>
       <GlobalStyles />
       <div>
-        <Header />
+        <Header currentUser={currentUser} />
         <Switch>
-          {/* <Home> */}
           <Route exact path="/">
-            <Homepage />
+            <Homepage users={users} setUsers={setUsers} />
           </Route>
-          {/* </Home> */}
           <Route exact path="/sign-in">
-            <SignIn />
+            <SignIn
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              users={users}
+              setUsers={setUsers}
+            />
           </Route>
           <Route exact path="/users/:id">
-            <User />
+            <User currentUser={currentUser} setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/profile">Page 1</Route>
         </Switch>

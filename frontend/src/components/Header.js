@@ -1,11 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ currentUser }) => {
   return (
     <Wrapper>
-      <Link href="/">Facespace</Link>
-      <P href="/sign-in">Sign in</P>
+      <StyledLink to={"/"}>Facespace</StyledLink>
+      <P>
+        {currentUser ? (
+          <Div1>Welcome back, {currentUser.name}</Div1>
+        ) : (
+          <StyledLink to={"/sign-in"}>Sign in</StyledLink>
+        )}
+      </P>
     </Wrapper>
   );
 };
@@ -19,7 +27,7 @@ const Wrapper = styled.div`
   background-color: #353148;
 `;
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   font-family: "Teko", sans-serif;
   font-size: 30px;
   text-decoration: none;
@@ -31,7 +39,14 @@ const Link = styled.a`
   }
 `;
 
-const P = styled.a`
+const Div1 = styled.div`
+  font-family: "Teko", sans-serif;
+  font-size: 30px;
+  padding: 5px 25px 0px 0;
+  color: #d9c39e;
+`;
+
+const P = styled(Link)`
   font-family: "Teko", sans-serif;
   font-size: 20px;
   text-decoration: none;

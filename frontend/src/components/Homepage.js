@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Homepage = () => {
-  const [users, setUsers] = useState([]);
-
+const Homepage = ({ users, setUsers }) => {
   useEffect(() => {
     fetch("/api/users")
       .then((res) => res.json())
