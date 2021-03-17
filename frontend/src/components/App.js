@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
@@ -10,14 +10,32 @@ import User from "./User";
 const App = () => {
   const [currentUser, setCurrentUser] = useState("");
   const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    let getId = localStorage.getItem("id");
+    console.log(getId);
+    if (getId) {
+      fetch(`/api/users/${getId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setCurrentUser(data.data);
+        });
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <GlobalStyles />
       <div>
-        <Header currentUser={currentUser} />
+        <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <Switch>
           <Route exact path="/">
-            <Homepage users={users} setUsers={setUsers} />
+            <Homepage
+              users={users}
+              setUsers={setUsers}
+              currentUser={currentUser}
+            />
           </Route>
           <Route exact path="/sign-in">
             <SignIn

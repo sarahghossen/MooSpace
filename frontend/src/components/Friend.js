@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Friend = ({ friendId }) => {
@@ -15,10 +16,10 @@ const Friend = ({ friendId }) => {
   return (
     <>
       {friend ? (
-        <Link href={`/users/${friendId}`}>
+        <StyleLink to={`/users/${friendId}`}>
           <Img src={friend.avatarUrl} />
           <H2>{friend.name}</H2>
-        </Link>
+        </StyleLink>
       ) : (
         <div>Loading...</div>
       )}
@@ -26,7 +27,7 @@ const Friend = ({ friendId }) => {
   );
 };
 
-const Link = styled.a`
+const StyleLink = styled(Link)`
   display: inline-block;
   margin: 10px;
   text-decoration: none;

@@ -16,6 +16,7 @@ const SignIn = ({ currentUser, setCurrentUser, users, setUsers }) => {
         setCurrentUser(user);
       }
     });
+    localStorage.setItem("id", currentUser._id);
     history.push("/");
   };
 

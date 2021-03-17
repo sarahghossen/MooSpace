@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Homepage = ({ users, setUsers }) => {
+const Homepage = ({ users, setUsers, currentUser }) => {
   useEffect(() => {
     fetch("/api/users")
       .then((res) => res.json())
@@ -10,24 +11,48 @@ const Homepage = ({ users, setUsers }) => {
       });
   }, []);
 
-  return (
-    <>
-      <H1>All Facespace members</H1>
-      <Everything>
-        {users.map((user) => {
-          //   console.log(user);
-          return (
-            <UserDiv>
-              <Link href={`/users/${user._id}`}>
-                <Img src={user.avatarUrl} alt="Profile pic" />
-                <P>{user.name}</P>
-              </Link>
-            </UserDiv>
-          );
-        })}
-      </Everything>
-    </>
-  );
+  if (users && currentUser) {
+    return (
+      <>
+        <H1>All Facespace members</H1>
+        <Everything>
+          {users.map((user) => {
+            //   console.log(user);
+            return (
+              <UserDiv>
+                <StyledLink to={`/users/${user._id}`}>
+                  <Img src={user.avatarUrl} alt="Profile pic" />
+                  <P>{user.name}</P>
+                  {currentUser.friends.includes(user._id) && <p>friend</p>}
+                </StyledLink>
+              </UserDiv>
+            );
+          })}
+        </Everything>
+      </>
+    );
+  } else if (users) {
+    return (
+      <>
+        <H1>All Facespace members</H1>
+        <Everything>
+          {users.map((user) => {
+            //   console.log(user);
+            return (
+              <UserDiv>
+                <StyledLink to={`/users/${user._id}`}>
+                  <Img src={user.avatarUrl} alt="Profile pic" />
+                  <P>{user.name}</P>
+                </StyledLink>
+              </UserDiv>
+            );
+          })}
+        </Everything>
+      </>
+    );
+  } else {
+    return <div>Loading...</div>;
+  }
 };
 
 // const Div = styled.div`
@@ -46,7 +71,7 @@ const Everything = styled.div`
   flex-wrap: wrap;
 `;
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   text-decoration: none;
   color: #353148;
 `;
