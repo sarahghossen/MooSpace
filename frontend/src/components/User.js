@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import styled from "styled-components";
 import Friend from "./Friend";
 
-const User = ({ currentUser, setCurrentUser }) => {
+const User = () => {
   const [profileUser, setProfileUser] = useState({});
   let { id } = useParams();
   useEffect(() => {
