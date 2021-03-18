@@ -72,6 +72,7 @@ const StyledLink = styled(Link)`
 
 const Img = styled.img`
   width: 120px;
+  height: 120px;
   margin: 10px;
   border: 3px solid #b7a260;
   border-radius: 50%;
