@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
@@ -8,6 +8,13 @@ const SignIn = ({ currentUser, setCurrentUser, users }) => {
   const [input, setInput] = useState();
   const history = useHistory();
 
+  useEffect(() => {
+    if (currentUser) {
+      localStorage.setItem("id", currentUser._id);
+      history.push("/");
+    }
+  }, [currentUser]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("insideHandle", input);
@@ -16,8 +23,6 @@ const SignIn = ({ currentUser, setCurrentUser, users }) => {
         setCurrentUser(user);
       }
     });
-    localStorage.setItem("id", currentUser._id);
-    history.push("/");
   };
 
   return currentUser ? (

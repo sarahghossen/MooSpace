@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Friend = ({ friendId }) => {
+const Friend = ({ friendId, profileUser }) => {
   const [friend, setFriend] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Friend = ({ friendId }) => {
       .then((data) => {
         setFriend(data.data);
       });
-  }, []);
+  }, [profileUser]);
   // console.log(friendId);
   return (
     <>

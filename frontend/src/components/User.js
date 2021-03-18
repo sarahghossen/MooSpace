@@ -5,16 +5,16 @@ import Friend from "./Friend";
 
 const User = () => {
   const [profileUser, setProfileUser] = useState({});
+
   let { id } = useParams();
   useEffect(() => {
-    // fetch("/api" + window.location.pathname)
     fetch("/api/users/" + id)
       .then((res) => res.json())
       .then((data) => {
         setProfileUser(data.data);
       });
   }, [id]);
-  console.log("hello");
+  // console.log(profileUser);
   return (
     <>
       {profileUser && profileUser.friends ? (
@@ -24,7 +24,7 @@ const User = () => {
             <H1>{profileUser.name}</H1>
             <H2>{profileUser.name}'s Friends</H2>
             {profileUser.friends.map((friendId) => (
-              <Friend friendId={friendId} />
+              <Friend profileUser={profileUser} friendId={friendId} />
             ))}
           </Div>
         </Container>
