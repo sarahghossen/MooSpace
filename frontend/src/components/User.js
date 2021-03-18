@@ -48,21 +48,22 @@ const Div = styled.div`
 const Img = styled.img`
   margin-top: 150px;
   width: 300px;
+  height: 300px;
   border-radius: 50%;
-  border: 5px solid #d9c39e;
+  border: 5px solid #b7a260;
 `;
 
 const H1 = styled.h1`
   margin-top: 10px;
-  color: #353148;
+  color: #464f37;
   font-family: "Teko", sans-serif;
   font-size: 50px;
   text-align: center;
-  border-bottom: 1px solid #353148;
+  border-bottom: 1px solid #464f37;
 `;
 
 const H2 = styled.h2`
-  color: #353148;
+  color: #464f37;
   font-family: "Teko", sans-serif;
   font-size: 20px;
   margin-top: 60px;
