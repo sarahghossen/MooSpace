@@ -13,7 +13,7 @@ const User = ({ currentUser, setCurrentUser }) => {
       .then((data) => {
         setProfileUser(data.data);
       });
-  }, []);
+  }, [id]);
   console.log("hello");
   return (
     <>

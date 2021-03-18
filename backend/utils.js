@@ -8,7 +8,10 @@ const findUser = (users, userId) => {
 };
 
 const findUserIndex = (users, userId) => {
-  return users.findIndex((user) => user._id === userId) || null;
+  let index = users.findIndex((user) => {
+    return user._id === userId;
+  });
+  return index !== -1 ? index : null;
 };
 
 module.exports = { findUser, findUserIndex, sendResponse };

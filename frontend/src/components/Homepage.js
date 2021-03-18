@@ -14,7 +14,7 @@ const Homepage = ({ users, setUsers, currentUser }) => {
   if (users && currentUser) {
     return (
       <>
-        <H1>All Facespace members</H1>
+        <H1>All MooSpace members</H1>
         <Everything>
           {users.map((user) => {
             //   console.log(user);
@@ -23,7 +23,13 @@ const Homepage = ({ users, setUsers, currentUser }) => {
                 <StyledLink to={`/users/${user._id}`}>
                   <Img src={user.avatarUrl} alt="Profile pic" />
                   <P>{user.name}</P>
-                  {currentUser.friends.includes(user._id) && <p>friend</p>}
+                  {currentUser.friends.includes(user._id) && (
+                    <ImgIcon
+                      src="/images/cowHeart.png"
+                      alt="cow icon"
+                    ></ImgIcon>
+                  )}
+                  {currentUser._id.includes(user._id) && <Me>Me</Me>}
                 </StyledLink>
               </UserDiv>
             );
@@ -57,17 +63,27 @@ const Homepage = ({ users, setUsers, currentUser }) => {
 
 const UserDiv = styled.div`
   margin: 5px;
+  text-align: center;
 `;
 
 const Everything = styled.div`
   margin: 50px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #464f37;
+  display: inline-block;
+  text-align: center;
+`;
+
+const ImgIcon = styled.img`
+  width: 30px;
+  border-radius: 5px;
+  position: relative;
 `;
 
 const Img = styled.img`
@@ -82,6 +98,18 @@ const Img = styled.img`
     -ms-transform: scale(1.1);
     transform: scale(1.1);
   }
+`;
+
+const Me = styled.p`
+  font-family: "Teko", sans-serif;
+  font-size: 15px;
+  background-color: #b7a260;
+  border-radius: 7px;
+  margin-right: 45px;
+  margin-left: 45px;
+  left: 20px;
+  right: 20px;
+  padding: 3px;
 `;
 
 const P = styled.p`

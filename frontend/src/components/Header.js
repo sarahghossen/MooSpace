@@ -10,12 +10,17 @@ const Header = ({ currentUser, setCurrentUser }) => {
       <P>
         {currentUser ? (
           <>
-            <Button onClick={() => setCurrentUser(undefined)}>
-              Welcome back, {currentUser.name} | Sign Out
+            <Button
+              onClick={() => {
+                setCurrentUser(undefined);
+                localStorage.removeItem("id");
+              }}
+            >
+              Welcome back, {currentUser.name} | SIGN OUT
             </Button>
           </>
         ) : (
-          <StyledLink to="/sign-in">Sign in</StyledLink>
+          <StyledLink to="/sign-in">SIGN IN</StyledLink>
         )}
       </P>
     </Wrapper>

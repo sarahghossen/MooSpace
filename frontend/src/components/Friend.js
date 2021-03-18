@@ -13,7 +13,7 @@ const Friend = ({ friendId }) => {
         setFriend(data.data);
       });
   }, []);
-
+  // console.log(friendId);
   return (
     <>
       {friend ? (
@@ -38,6 +38,7 @@ const Img = styled.img`
   text-decoration: none;
   color: #353148;
   width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 3px solid #d9c39e;
   &:hover {
