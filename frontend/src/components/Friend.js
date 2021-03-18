@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const Friend = ({ friendId }) => {
   const [friend, setFriend] = useState([]);
+
   useEffect(() => {
     fetch("/api/users/" + friendId)
       .then((res) => res.json())

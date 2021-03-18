@@ -35,7 +35,7 @@ const User = ({ currentUser, setCurrentUser }) => {
   );
 };
 const Container = styled.div`
-  background: url("/images/backgroundFaceSpace.jpg");
+  background: url("/images/grassBkg.jpg");
   background-position: center;
   background-size: cover;
   height: 400px;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
-const SignIn = ({ currentUser, setCurrentUser, users, setUsers }) => {
+const SignIn = ({ currentUser, setCurrentUser, users }) => {
   console.log(currentUser);
   console.log(users);
   const [input, setInput] = useState();
@@ -45,7 +45,7 @@ const SignIn = ({ currentUser, setCurrentUser, users, setUsers }) => {
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  background-color: rgba(53, 49, 72, 0.8);
+  background-color: rgba(70, 79, 55, 0.8);
   align-items: center;
   justify-content: center;
   width: 20vw;
@@ -55,7 +55,7 @@ const Form = styled.form`
 `;
 
 const FormDiv = styled.div`
-  background: url("/images/Montreal.jpg");
+  background: url("/images/mooBackground.jpg");
   background-position: center;
   background-size: cover;
   height: calc(100vh - 60px);
@@ -72,19 +72,27 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+  cursor: pointer;
   border: none;
   padding: 3px;
   width: 30%;
   margin-top: 10px;
-  background-color: #d9c39e;
-  color: #353148;
+  background-color: #b7a260;
+  color: #464f37;
   font-family: "Teko", sans-serif;
-  font-size: 15px;
+  font-size: 20px;
+  border-radius: 7px;
+  &:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 `;
 
 const P = styled.p`
-  color: #d9c39e;
+  color: #b7a260;
   font-family: "Teko", sans-serif;
+  font-size: 20px;
 `;
 
 export default SignIn;

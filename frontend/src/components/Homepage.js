@@ -34,7 +34,7 @@ const Homepage = ({ users, setUsers, currentUser }) => {
   } else if (users) {
     return (
       <>
-        <H1>All Facespace members</H1>
+        <H1>All MooSpace members</H1>
         <Everything>
           {users.map((user) => {
             //   console.log(user);
@@ -55,12 +55,6 @@ const Homepage = ({ users, setUsers, currentUser }) => {
   }
 };
 
-// const Div = styled.div`
-//   background-color: #d9c39e;
-//   background-size: cover;
-//   height: 100vh;
-// `;
-
 const UserDiv = styled.div`
   margin: 5px;
 `;
@@ -73,13 +67,13 @@ const Everything = styled.div`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #353148;
+  color: #464f37;
 `;
 
 const Img = styled.img`
   width: 120px;
   margin: 10px;
-  border: 3px solid #d9c39e;
+  border: 3px solid #b7a260;
   border-radius: 50%;
   background-color: purple;
   &:hover {
@@ -99,7 +93,7 @@ const P = styled.p`
 `;
 
 const H1 = styled.h1`
-  color: #353148;
+  color: #464f37;
   font-family: "Teko", sans-serif;
   font-size: 50px;
   border-bottom: 1px solid #353148;
