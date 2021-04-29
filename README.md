@@ -1,4 +1,6 @@
-# Welcome to Moospace 🐮
+# Welcome to MooSpace 🐮
+
+Welcome to MooSpace! Here you're able to connect with you're moo friends when signed in, as well as view other cows profile!
 
 ## Screenshots
 
